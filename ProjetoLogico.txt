@@ -1,0 +1,17 @@
+Os TRIGGERS do tipo after vão ser os mais complicados, pois eles
+que vão ter os comandos mais complicados que manipulam as informações
+(Exm: _CONTAS, _VALORTOTAL, _SALDO).
+
+DTDEPOSITO = DATA DEPÓSITO
+
+
+
+banco (IDBANCO, NOME, NUMERO, _CONTAS, _VALORTOTAL)
+
+conta (IDCONTA, NUMERO, _SALDO) REFERENCES: IDBANCO, IDCLIENTE
+
+cliente (IDCLIENTE, NOME, CPF, _CONTAS, _VALORTOTAL)
+
+deposito (IDDEPOSITO, DTDEPOSITO, VALOR) REFERENCES: IDCONTA
+
+saque (IDSAQUE, DTSAQUE, VALOR) REFERENCES: IDCONTA
